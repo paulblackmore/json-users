@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import UserList from './components/UserList/UserList';
 import './App.css';
 
@@ -9,6 +9,8 @@ const fetchData = (type) => {
 
 function App() {
   const [users, setUsers] = useState([])
+
+  const usersRef = useMemo(() => users, [users])
 
   useEffect(() => {
     const getUsers = async() => {
@@ -21,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <UserList users={users} />
+      <UserList users={usersRef} />
     </div>
   );
 }

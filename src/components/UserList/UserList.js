@@ -1,3 +1,4 @@
+import {memo} from 'react'
 import classes from './UserList.module.css';
 
 const UserList = ({users}) => {
@@ -9,4 +10,4 @@ const UserList = ({users}) => {
   );
 }
 
-export default UserList;
+export default memo(UserList);
