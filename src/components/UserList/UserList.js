@@ -1,13 +1,17 @@
-import {memo} from 'react'
+import React from 'react'
+import User from '../User/User'
 import classes from './UserList.module.css';
 
-const UserList = ({users}) => {
-    console.log(users)
-  return (
+const UserList = ({ users }) => {
+	console.log('redner list')
+		console.log(users)
+		
+	if (users && users.length === 0) return null;
+	else return (
     <div className={classes.container}>
-        Users
+			{users.map((user, index) => <User key={index} user={user} /> )}
     </div>
   );
 }
 
-export default memo(UserList);
+export default React.memo(UserList);
