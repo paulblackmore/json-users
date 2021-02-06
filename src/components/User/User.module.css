@@ -9,7 +9,12 @@
 	flex-direction: column;
 	align-items: flex-start;
 	justify-content: space-between;
-	color: #9a9898;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.container:hover {
+	opacity: 1;
 }
 
 .container h2 {
