@@ -1,11 +1,10 @@
 .container {
-	display: grid;
-  grid-template-columns: auto auto auto;
+	width: 950px;
+	margin: auto;
   padding: 10px;
 }
 
-@media(min-width: 550px) {
-	.container {
-		grid-template-columns: auto auto auto auto;
-	}
+.container h1 {
+  font-size: 80px;
+  margin-top: 0;
 }

@@ -1,15 +1,18 @@
-import React from 'react'
+import React, {useMemo} from 'react'
 import User from '../User/User'
 import classes from './UserList.module.css';
 
 const UserList = ({ users }) => {
-	console.log('redner list')
-		console.log(users)
+	const usersRef = useMemo(() => users, [users])
+
+
+	console.log(users)
 		
 	if (users && users.length === 0) return null;
 	else return (
     <div className={classes.container}>
-			{users.map((user, index) => <User key={index} user={user} /> )}
+			<h1>It's business time...</h1>
+			{usersRef.map((user, index) => <User key={index} user={user} /> )}
     </div>
   );
 }

@@ -8,10 +8,10 @@ const User = ({ user }) => {
         <h2>{user.name}</h2>
         <span>{user.username}</span>
       </section>
-      <footer>
+      <section>
         <span>{user.email}</span>
         <span>{user.website}</span>
-      </footer>
+      </section>
     </main>
   )
 }

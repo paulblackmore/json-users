@@ -1,12 +1,10 @@
-import {useEffect, useState, useMemo} from 'react';
+import {useEffect, useState} from 'react';
 import {userService} from './services';
 import UserList from './components/UserList/UserList';
 import './App.css';
 
 function App() {
   const [users, setUsers] = useState([])
-  
-  const usersRef = useMemo(() => users, [users])
 
   useEffect(() => {
     const getUsers = async() => {
@@ -19,8 +17,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>It's business time...</h1>
-      <UserList users={usersRef} />
+      <UserList users={users} />
     </div>
   );
 }
