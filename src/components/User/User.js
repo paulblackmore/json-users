@@ -13,7 +13,8 @@ const User = ({ user }) => {
         </div>
       </section>
         <div className={classes.btnSection}>
-
+          <button>Update</button>
+          <button>Delete</button>
         </div>
     </main>
   )

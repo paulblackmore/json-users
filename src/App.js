@@ -9,17 +9,22 @@ function App() {
 
   useEffect(() => {
     const getUsers = async() => {
-      let users = await userService.get('users')
-      setUsers(users)
+      await userService.get('users').then(setUsers).catch(err => {
+        console.log('error getting users', err)
+      })
     }
 
     getUsers()
   }, [])
 
+  const addUser = (user) => {
+    setUsers([...users, user])
+  }
+
   return (
     <div className="App">
 			<h1>It's business time...</h1>
-      <UserForm />
+      <UserForm addUser={addUser} />
       <UserList users={users} />
     </div>
   );

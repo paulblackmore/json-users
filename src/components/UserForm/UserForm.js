@@ -1,23 +1,28 @@
 import React, {useState} from 'react';
+import {userService} from '../../services'
 import classes from './UserForm.module.css'
 
-const UserForm = () => {
-  const [user, setUser] = useState({
-    name: '',
-    username: '',
-    email: '',
-    website: ''
-  })
+const INITIAL_STATE = {
+  name: '',
+  username: '',
+  email: '',
+  website: ''
+}
+
+const UserForm = ({ addUser }) => {
+  const [user, setUser] = useState(INITIAL_STATE)
 
   const handleChange = name => event => {
-    setUser({
-      ...user,
-      [name]: event.target.value
-    })
+    setUser({...user, [name]: event.target.value})
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
+    setUser(INITIAL_STATE)
+
+    await userService.create(user).then(addUser).catch(err => {
+      console.log('error creating', err)
+    })
   }
 
   return(
@@ -25,6 +30,7 @@ const UserForm = () => {
       {Object.keys(user).map((key, index) => {
         return(
           <input
+            required
             key={index}
             name={key}
             value={user[key]}
