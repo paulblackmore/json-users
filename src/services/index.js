@@ -1,5 +1,3 @@
-
-
 const get = (type) => {
   return fetch(`https://jsonplaceholder.typicode.com/${type}`)
     .then(response => response.json())
@@ -15,8 +13,14 @@ const update = (type) => {
     .then(response => response.json())
 }
 
+const remove = (type) => {
+  return fetch(`https://jsonplaceholder.typicode.com/${type}`)
+    .then(response => response.json())
+}
+
 export const userService = {
   get,
   create,
-  update
+  update,
+  remove
 }
