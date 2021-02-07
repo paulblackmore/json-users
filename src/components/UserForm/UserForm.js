@@ -20,8 +20,6 @@ const UserForm = () => {
     event.preventDefault();
   }
 
-  console.log(user)
-
   return(
     <form onSubmit={handleSubmit} className={classes.container}>
       {Object.keys(user).map((key, index) => {
