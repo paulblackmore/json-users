@@ -17,15 +17,19 @@ function App() {
     getUsers()
   }, [])
 
-  const addUser = (user) => {
+  const handleUpdateUser = (user) => {
     setUsers([...users, user])
   }
 
   return (
     <div className="App">
 			<h1>It's business time...</h1>
-      <UserForm addUser={addUser} />
-      <UserList users={users} />
+      <UserForm 
+        handleUpdateUser={handleUpdateUser} 
+      />
+      <UserList 
+        users={users}
+      />
     </div>
   );
 }

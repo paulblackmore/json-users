@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   website: ''
 }
 
-const UserForm = ({ addUser }) => {
+const UserForm = ({ handleUpdateUser }) => {
   const [user, setUser] = useState(INITIAL_STATE)
 
   const handleChange = name => event => {
@@ -20,7 +20,13 @@ const UserForm = ({ addUser }) => {
     event.preventDefault();
     setUser(INITIAL_STATE)
 
-    await userService.create(user).then(addUser).catch(err => {
+    if (user.id) {
+      return await userService.update(user).then(handleUpdateUser).catch(err => {
+        console.log('error creating', err)
+      })
+    }
+
+    return await userService.create(user).then(handleUpdateUser).catch(err => {
       console.log('error creating', err)
     })
   }
