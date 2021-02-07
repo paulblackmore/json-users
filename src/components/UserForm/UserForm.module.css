@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.container input {
+  padding: 5px;
+  border: green solid 2px;
+  border-radius: 5px;
+}
+
+.container button {
+  padding: 5px;
+  background: green;
+  color: #fff;
+  border: green solid 2px;
+  border-radius: 5px;
+}

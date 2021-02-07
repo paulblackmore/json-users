@@ -1,5 +1,7 @@
 .App {
-  padding: 20px;
+  width: 950px;
+	margin: auto;
+  padding: 10px;
 }
 
 .App h1 {

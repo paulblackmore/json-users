@@ -6,12 +6,15 @@ const User = ({ user }) => {
     <main className={classes.container}>
       <section className={classes.title}>
         <h2>{user.name}</h2>
-        <span>{user.username}</span>
+        <div className={classes.info}>
+          <span>{user.username}</span>
+          <span>{user.email}</span>
+          <span>{user.website}</span>
+        </div>
       </section>
-      <footer>
-        <span>{user.email}</span>
-        <span>{user.website}</span>
-      </footer>
+        <div className={classes.btnSection}>
+
+        </div>
     </main>
   )
 }
