@@ -16,10 +16,14 @@ function App() {
     getUsers()
   }, [])
 
+  const addUser = (user) => {
+    setUsers([...users, user])
+  }
+
   return (
     <div className="App">
 			<h1>It's business time...</h1>
-      <UserForm />
+      <UserForm addUser={addUser} />
       <UserList users={users} />
     </div>
   );
