@@ -9,8 +9,9 @@ function App() {
 
   useEffect(() => {
     const getUsers = async() => {
-      let users = await userService.get('users')
-      setUsers(users)
+      await userService.get('users').then(setUsers).catch(err => {
+        console.log('error getting users', err)
+      })
     }
 
     getUsers()

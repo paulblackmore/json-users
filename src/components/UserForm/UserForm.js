@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {userService} from '../../services'
 import classes from './UserForm.module.css'
 
 const INITIAL_STATE = {
@@ -15,10 +16,13 @@ const UserForm = ({ addUser }) => {
     setUser({...user, [name]: event.target.value})
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     setUser(INITIAL_STATE)
-    addUser(user)
+
+    await userService.create(user).then(addUser).catch(err => {
+      console.log('error creating', err)
+    })
   }
 
   return(
